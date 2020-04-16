@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a = { prop1: 1, list: [1,2,3], o: { x: 2 } }; 
+        let b = { lis: [1,2,3], o: { x: 2 } };
+        function isDeepEqual(){
+            // check type
+            if( typeof(a) === typeof(b) ){
+                console.log("type - true" );
+                } else {
+                return(false)    
+                }
+
+            // check Length
+            a_2 = Object.keys(a);
+            b_2 = Object.keys(b);
+
+            if (a_2.length == b_2.length) {
+                console.log("length - true" );
+                } else {
+                console.log("length - false" );    
+                return(false)                   
+                }
+
+            // check KEY
+            let CheckKey = [];
+
+            for (var i = 0; i < a_2.length; i++) {
+                for (var j = 0; j < a_2.length; j++) {
+                    if (b_2[j] == a_2[i]){
+                        CheckKey.push(true);    
+                        break;
+                    }
+                }
+            }
+            console.log(CheckKey); 
+
+            if (CheckKey.length == b_2.length) {
+                console.log("key - true" );
+                } else {
+                console.log("key - false" );      
+                return(false)    
+                }
+
+            //  check Value
+            a_2 = Object.values(a);
+            b_2 = Object.values(b);
+            
+        }
+        b.prop1 = 1;
+        isDeepEqual(a , b)
+
+
+    </script>
+</body>
+</html>
